@@ -1,0 +1,22 @@
+<div class="container">
+    <form class="form mat-elevation-z8">
+
+        <h1>Login</h1>
+        <br/>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input [formControl]="email" name="email" required matInput placeholder="exemplo@mail.com">
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input [formControl]="senha" name="senha" required type="password" matInput placeholder="123">
+            <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+
+        <button [disabled]="!validaCampos()" class="full-width" mat-flat-button color="primary">Entrar</button>
+
+    </form>
+</div>
