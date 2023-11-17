@@ -3,9 +3,10 @@ Esta aplicação web tem o intuito de realizar um CRUD simples de Usuário. Foi 
 
 # :mag_right: Preview
 <p align="center">
-  <img width="70%" src="./src/img/Painel.png" />
+  <img width="70%" src="./src/app/img/Painel.png" />
 </p>
-[Aplicação hospedada na Vercal](https://project-angular-firebase.vercel.app/)
+
+[Aplicação hospedada na Vercel](https://project-angular-firebase.vercel.app/home)
 
 # :technologist: Tecnologias
 - Angular
