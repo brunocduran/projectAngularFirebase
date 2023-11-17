@@ -2,12 +2,22 @@
     <mat-card-header>
         <mat-card-title>Home</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        <br />
-        <hr /><br />
-        <p>
-            Projeto desenvolvido em Angular e Firebase<br />
-            Desenvolvido por: Bruno César Duran
-        </p>
-    </mat-card-content>
+    <mat-list>
+        <div mat-subheader>CRUD de usuário<br />
+            Tecnologias utilizadas no projeto:</div>
+          <mat-list-item>
+            <mat-icon matListItemIcon>circle</mat-icon>
+            <div matListItemTitle>Angular</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListItemIcon>circle</mat-icon>
+            <div matListItemTitle>Firebase</div>
+          </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>Desenvolvido por:</div>
+          <mat-list-item>
+            <mat-icon matListItemIcon>account_circle</mat-icon>
+            <div matListItemTitle>Bruno César Duran</div>
+          </mat-list-item>
+      </mat-list>
 </mat-card>

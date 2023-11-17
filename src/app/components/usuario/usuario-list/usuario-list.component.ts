@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/model/usuario';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-list',
@@ -14,35 +16,28 @@ export class UsuarioListComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private service: UsuarioService
+    private service: UsuarioService,
+    private toast: ToastrService,
+    private router: Router
   ){}
-
-  ELEMENT_DATA: Usuario[] = []
-
-  usuarioTeste: Usuario ={
-    id: 1,
-    nome: 'Buno',
-    cpf: '45111889809',
-    email: 'bruno@gmail.com',
-    senha: '123'
-  }
-
-  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'edit', 'delete'];
-  dataSource = new MatTableDataSource<Usuario>(this.ELEMENT_DATA);
+  
+  usuarios!: Observable<any>;
 
   ngOnInit(){
     this.findAll();
   }
 
   findAll(){
-      this.ELEMENT_DATA.push(this.usuarioTeste);
-      this.dataSource = new MatTableDataSource<Usuario>(this.ELEMENT_DATA);
-      this.dataSource.paginator = this.paginator;
+    this.usuarios = this.service.findAll();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  delete(key: string){
+    this.service.delete(key);
+    this.toast.error('Usuário excluído com sucesso!');
+  }
+
+  edit(usuario: Usuario, key: string){
+    this.router.navigate(['usuarios/create', usuario])
   }
 
 }

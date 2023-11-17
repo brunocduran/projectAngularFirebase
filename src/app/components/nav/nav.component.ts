@@ -15,11 +15,7 @@ export class NavComponent {
     private toast: ToastrService) { }
 
   ngOnInit() {
-    this.router.navigate(['usuarios/create'])
-  }
-
-  logout() {
-    this.toast.info('Logout realizado com sucesso', 'Logout');
+    this.router.navigate(['home'])
   }
 
 }

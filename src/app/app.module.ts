@@ -28,6 +28,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+// Firebase
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 // Componentes do projeto
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
@@ -75,7 +80,9 @@ import { NgxMaskModule } from 'ngx-mask';
       closeButton: true,
       progressBar: true
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
